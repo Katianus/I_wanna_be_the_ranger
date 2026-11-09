@@ -128,12 +128,14 @@ h1{font-size:clamp(25px,5vw,42px);letter-spacing:clamp(2px,.65vw,7px);text-shado
 .ranger-control-card p{margin:4px 0!important;font-size:11px!important;}
 @media(max-width:560px){#panel.ranger-panel{width:96vw;padding:15px 12px;max-height:96vh}.ranger-slots{grid-template-columns:1fr;max-height:43vh;overflow:auto}.ranger-slot-card{display:grid;grid-template-columns:55px 1fr;align-items:center}.ranger-slot-label{grid-row:1/3}.ranger-slot-main{min-height:82px}.ranger-delete{grid-column:2}.ranger-title-art{max-height:26vh}.ranger-menu-grid{width:100%;gap:7px}.ranger-menu-button{font-size:12px;min-height:41px}.ranger-main-title{font-size:clamp(22px,7vw,34px)!important;}}
 
+
+.ranger-world-map{max-height:80vh;overflow:auto}.ranger-map-grid{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(4,66px);gap:4px;margin:14px 0}.ranger-map-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0;overflow:visible}.ranger-map-lines line{stroke:#8294bd;stroke-width:3;stroke-dasharray:7 5;opacity:.7}.ranger-region-node{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:5px 3px;text-align:center;min-width:0}.ranger-region-node b{font-size:clamp(7px,1.6vw,11px)}.ranger-region-node small{font-size:clamp(6px,1.2vw,8px)}.ranger-region-node{border:1px solid #46516f;border-radius:8px;padding:9px;background:#151b30;text-align:left}.ranger-region-node b{display:block;font-size:12px;color:#e8edff}.ranger-region-node small{display:block;margin-top:4px;font-size:9px;color:#8d9ab8}.ranger-region-node.done{border-color:#62b98a;background:#172d2b}.ranger-region-node.open{border-color:#e4bd65;background:#302a1d}.ranger-map-links{display:grid;grid-template-columns:1fr;gap:7px;margin-top:12px}.ranger-map-links button{width:100%}
 </style>
 </head>
 <body>
 <div id="wrap">
 <h1 id="gameTitle">I wanna be the ranger</h1>
-<div id="editionLine">RANGER EDITION · 24 FASES · 3 SLOTS DE RUN</div>
+<div id="editionLine">RANGER EDITION · 40 FASES · 3 SLOTS DE RUN</div>
 <div id="hud"><span id="level">FASE 1: FLORESTA PIXEL</span><span id="lives">♥</span><span id="score">MOEDAS: 0</span><span id="stats">MORTES: 0 · TEMPO: 00:00</span><button id="pauseToggle" type="button" aria-label="Pausar o jogo">Ⅱ PAUSAR</button><button id="soundToggle" type="button" aria-pressed="true">♫ SOM: ON</button><button id="fullscreenToggle" type="button" aria-label="Alternar tela cheia">⛶ TELA</button></div><div id="progressTrack" aria-label="Progresso do jogo"><div id="progressFill"></div></div>
 <canvas id="game" width="960" height="540" aria-label="Jogo de plataforma 2D" role="img"></canvas>
 <div id="help">PC: ← →/A-D andar · Espaço/W/↑ pular (duplo) · X/Z atirar · P/Esc pausar · R reiniciar</div>
@@ -144,7 +146,7 @@ h1{font-size:clamp(25px,5vw,42px);letter-spacing:clamp(2px,.65vw,7px);text-shado
 <div id="touchActions"><button id="touchRestart" class="touchAction" type="button" aria-label="Reiniciar fase">↻ REINICIAR</button><button id="touchPause" class="touchAction" type="button">Ⅱ PAUSAR</button></div>
 <div id="recordsLine" aria-live="polite">RECORDES LOCAIS · SALVOS NESTE NAVEGADOR</div>
 </div>
-<div id="overlay"><div id="panel"><h2>I wanna be the ranger</h2><p>Um jogo de plataforma retrô com <strong>24 fases</strong>, armadilhas traiçoeiras, checkpoints e um chefão gigante com três tipos de ataque na batalha final.</p><p><strong>CONTROLES PC</strong><br>← → ou A/D: andar · Espaço/W/↑: pular e pulo duplo<br>X/Z: atirar · P/Esc: pausar · R: reiniciar a fase</p><p><strong>CONTROLES CELULAR</strong><br>Use ◀ ▶ para andar, ▲ para pular e ✦ para atirar. Segure o pulo para saltar mais alto e toque novamente no ar para usar o pulo duplo.</p><p>Atire nos blocos com <strong>S</strong> para ativar checkpoints. Escolha a dificuldade:</p><div id="difficultyChoices" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:12px 0 16px"><button class="difficultyChoice" data-mode="easy">🟢 FÁCIL</button><button class="difficultyChoice selected" data-mode="medium">🟡 MÉDIO</button><button class="difficultyChoice" data-mode="hard">🔴 DIFÍCIL</button></div><p id="difficultyInfo" style="font-size:12px;color:#b9c8e8">Médio: armadilha secreta na fase 22.</p><button id="start">▶ COMEÇAR RUN</button></div></div>
+<div id="overlay"><div id="panel"><h2>I wanna be the ranger</h2><p>Um jogo de plataforma retrô com <strong>40 fases</strong>, armadilhas traiçoeiras, checkpoints e um chefão gigante com três tipos de ataque na batalha final.</p><p><strong>CONTROLES PC</strong><br>← → ou A/D: andar · Espaço/W/↑: pular e pulo duplo<br>X/Z: atirar · P/Esc: pausar · R: reiniciar a fase</p><p><strong>CONTROLES CELULAR</strong><br>Use ◀ ▶ para andar, ▲ para pular e ✦ para atirar. Segure o pulo para saltar mais alto e toque novamente no ar para usar o pulo duplo.</p><p>Atire nos blocos com <strong>S</strong> para ativar checkpoints. Escolha a dificuldade:</p><div id="difficultyChoices" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:12px 0 16px"><button class="difficultyChoice" data-mode="easy">🟢 FÁCIL</button><button class="difficultyChoice selected" data-mode="medium">🟡 MÉDIO</button><button class="difficultyChoice" data-mode="hard">🔴 DIFÍCIL</button></div><p id="difficultyInfo" style="font-size:12px;color:#b9c8e8">Médio: armadilha secreta na fase 22.</p><button id="start">▶ COMEÇAR RUN</button></div></div>
 <script>
 (()=>{
 const canvas=document.querySelector('#game'),ctx=canvas.getContext('2d',{alpha:false});
@@ -252,8 +254,43 @@ const levels=[
  {name:'O FIM DO MUNDO',bg:'#3a1525',ground:'#7c3442',platforms:[[0,490,135,50],[170,425,90,18],[300,365,85,18],[425,305,85,18],[550,365,85,18],[675,425,85,18],[800,375,160,18]],goal:900,enemyCount:7,boss:false,troll:'sky'},
  {name:'O ÚLTIMO JULGAMENTO',bg:'#160d20',ground:'#50303e',platforms:[[0,490,120,50],[155,420,90,18],[285,350,90,18],[415,405,90,18],[545,330,90,18],[675,395,90,18],[805,340,155,18]],goal:900,enemyCount:8,boss:false,troll:'electric'},
  {name:'TRILHOS DO CASTELO: CORRIDA DO CARRINHO',bg:'#182c43',ground:'#555d6b',platforms:[[0,490,230,50],[300,490,160,50],[530,490,160,50],[760,490,200,50],[245,420,58,14],[475,390,58,14],[705,420,58,14]],goal:885,enemyCount:0,boss:false,troll:'cartCastle'},
+
+ {name:'CEMITÉRIO DOS GIGANTES · FASE 4',bg:'#21152e',ground:'#51405b',platforms:[[0,490,145,50],[195,425,90,18],[325,365,90,18],[455,410,90,18],[585,340,90,18],[715,400,90,18],[845,330,115,18]],goal:900,enemyCount:5},
+ {name:'CEMITÉRIO DOS GIGANTES · FASE 5',bg:'#21152e',ground:'#51405b',platforms:[[0,490,150,50],[205,425,90,18],[335,365,90,18],[465,305,90,18],[595,365,90,18],[725,425,90,18],[855,365,105,18]],goal:900,enemyCount:5},
+ {name:'RUÍNAS SUBMERSAS · FASE 1',bg:'#073b50',ground:'#28616c',platforms:[[0,490,160,50],[210,420,100,18],[355,350,100,18],[500,410,100,18],[645,340,100,18],[790,420,170,18]],goal:900,enemyCount:4},
+ {name:'RUÍNAS SUBMERSAS · FASE 2',bg:'#073b50',ground:'#28616c',platforms:[[0,490,140,50],[190,430,90,18],[320,370,90,18],[450,310,90,18],[580,370,90,18],[710,430,90,18],[840,370,120,18]],goal:900,enemyCount:5},
+ {name:'RUÍNAS SUBMERSAS · FASE 3',bg:'#073b50',ground:'#28616c',platforms:[[0,490,150,50],[200,420,90,18],[330,350,90,18],[460,280,90,18],[590,350,90,18],[720,420,90,18],[850,350,110,18]],goal:900,enemyCount:5},
+ {name:'RUÍNAS SUBMERSAS · FASE 4',bg:'#073b50',ground:'#28616c',platforms:[[0,490,130,50],[180,430,90,18],[310,365,90,18],[440,300,90,18],[570,235,90,18],[700,300,90,18],[830,390,130,18]],goal:900,enemyCount:5},
+ {name:'RUÍNAS SUBMERSAS · FASE 5',bg:'#073b50',ground:'#28616c',platforms:[[0,490,140,50],[190,425,85,18],[315,360,85,18],[440,295,85,18],[565,230,85,18],[690,295,85,18],[815,390,145,18]],goal:900,enemyCount:5},
+ {name:'FORTALEZA MECÂNICA · FASE 1',bg:'#252d39',ground:'#56616d',platforms:[[0,490,150,50],[200,420,100,18],[350,350,100,18],[500,420,100,18],[650,330,100,18],[800,400,160,18]],goal:900,enemyCount:5},
+ {name:'FORTALEZA MECÂNICA · FASE 2',bg:'#252d39',ground:'#56616d',platforms:[[0,490,140,50],[190,430,90,18],[320,365,90,18],[450,300,90,18],[580,235,90,18],[710,300,90,18],[840,390,120,18]],goal:900,enemyCount:5},
+ {name:'FORTALEZA MECÂNICA · FASE 3',bg:'#252d39',ground:'#56616d',platforms:[[0,490,135,50],[180,425,85,18],[305,360,85,18],[430,295,85,18],[555,360,85,18],[680,425,85,18],[805,360,155,18]],goal:900,enemyCount:5},
+ {name:'FORTALEZA MECÂNICA · FASE 4',bg:'#252d39',ground:'#56616d',platforms:[[0,490,145,50],[195,425,90,18],[325,360,90,18],[455,295,90,18],[585,230,90,18],[715,295,90,18],[845,390,115,18]],goal:900,enemyCount:5},
+ {name:'FORTALEZA MECÂNICA · FASE 5',bg:'#252d39',ground:'#56616d',platforms:[[0,490,135,50],[180,430,85,18],[305,365,85,18],[430,300,85,18],[555,235,85,18],[680,300,85,18],[805,390,155,18]],goal:900,enemyCount:6},
+ {name:'TORRE DO THE GUY · FASE 1',bg:'#291638',ground:'#59406b',platforms:[[0,490,150,50],[200,420,95,18],[335,350,95,18],[470,280,95,18],[605,350,95,18],[740,420,220,18]],goal:900,enemyCount:5},
+ {name:'TORRE DO THE GUY · FASE 2',bg:'#291638',ground:'#59406b',platforms:[[0,490,130,50],[180,425,85,18],[305,360,85,18],[430,295,85,18],[555,230,85,18],[680,295,85,18],[805,390,155,18]],goal:900,enemyCount:5},
+ {name:'TORRE DO THE GUY · FASE 3',bg:'#291638',ground:'#59406b',platforms:[[0,490,140,50],[190,430,90,18],[320,370,90,18],[450,310,90,18],[580,250,90,18],[710,310,90,18],[840,390,120,18]],goal:900,enemyCount:6},
+ {name:'TORRE DO THE GUY · FASE 4',bg:'#291638',ground:'#59406b',platforms:[[0,490,120,50],[165,425,80,18],[285,360,80,18],[405,295,80,18],[525,230,80,18],[645,295,80,18],[765,360,80,18],[885,425,75,18]],goal:900,enemyCount:6},
  {name:'CHEFÃO FINAL: THE GUY',bg:'#21172f',ground:'#48304e',platforms:[[0,490,960,50]],goal:900,enemyCount:0,boss:true}
-]
+];
+// Mapa-mestre fixo: todos os slots usam exatamente esta mesma topologia.
+const RANGER_REGIONS=[
+ {id:0,name:'Floresta Esquecida',short:'FLORESTA',bg:'#8bd9ed',description:'Caminhos horizontais entre árvores e clareiras.',stages:[0,1,2,3,4],pos:[1,2]},
+ {id:1,name:'Abismo Vulcânico',short:'ABISMO',bg:'#32101b',description:'Túneis e pontes de pedra sobre a lava.',stages:[5,6,7,8,9],pos:[0,3]},
+ {id:2,name:'Montanhas Congeladas',short:'MONTANHAS',bg:'#b5e4f7',description:'Subida por encostas e cavernas de gelo.',stages:[10,11,12,13,14],pos:[2,0]},
+ {id:3,name:'Reino das Nuvens',short:'NUVENS',bg:'#11152f',description:'Uma escalada por ilhas suspensas.',stages:[15,16,17,18,19],pos:[2,1]},
+ {id:4,name:'Cemitério dos Gigantes',short:'CEMITÉRIO',bg:'#24172f',description:'Uma descida entre lápides e ossadas colossais.',stages:[20,21,22,23,24],pos:[1,3]},
+ {id:5,name:'Ruínas Submersas',short:'RUÍNAS',bg:'#06445a',description:'Rotas por cavernas e salões inundados.',stages:[25,26,27,28,29],pos:[0,4]},
+ {id:6,name:'Fortaleza Mecânica',short:'FORTALEZA',bg:'#29323c',description:'Elevadores e corredores que sobem pela fortaleza.',stages:[30,31,32,33,34],pos:[2,4]},
+ {id:7,name:'Torre do The Guy',short:'TORRE',bg:'#321d42',description:'A última subida, entre tijolos roxos.',stages:[35,36,37,38,39],pos:[3,2]}
+];
+const RANGER_REGION_LINKS={0:[1,2,3],1:[0,4,5],2:[0,3,6],3:[0,2,4],4:[1,3,5,6],5:[1,4,6],6:[2,4,5]};
+let rangerVisitedRegions=[0],rangerCurrentRegion=0;
+function rangerRegionForLevel(n){return n>=35?7:Math.max(0,Math.min(6,Math.floor(n/5)));}
+function rangerStageForRegion(region,phase){return RANGER_REGIONS[region].stages[phase];}
+function rangerRegionTitle(){const r=RANGER_REGIONS[rangerRegionForLevel(level)];return r?r.name:'Torre do The Guy';}
+levels.forEach((l,i)=>{const rid=rangerRegionForLevel(i),r=RANGER_REGIONS[rid];l.regionId=rid;l.regionName=r.name;l.regionPhase=rid===7?i-35+1:i%5+1;if(i<35)l.name=r.short+' · '+String(l.regionPhase).padStart(2,'0')+' · '+l.name;else if(i<39)l.name='TORRE DO THE GUY · '+String(l.regionPhase).padStart(2,'0');});
+
 let difficulty='medium',bossInvulnerable=false,phase22TrapMessage=0;
 let level=0,player,platforms,enemies,coins,shots,boss,score=0,lives=1,gameState='menu',camera=0,frame=0,deathCount=0,runStart=0,checkpoint={level:0,x:45,y:420},saveBlocks=[],destructibleBlocks=[],shotCooldown=0,jumpHeld=false,fruitChasers=[],bossShots=[],fallingClouds=[],fakePlatforms=[],reverseTimer=0,swapTimer=0,lowGravityTimer=0,clones=[],playerTrail=[],laserBeams=[],apples=[],appleDrops=0,bossIntroTimer=0,floorApples=[],floorAppleTimer=0,endingTimer=0,endingApple=null,endingDodged=false,creditsTimer=0,creditsRecord=null,surpriseSpike=null,worldHazards=[],caveTraps=[],precisionSpikes=[],gears=[],appleStorm=[],appleStormTimer=150,deathTimer=0,deathCause='',cartFish=[],cartX=0,cartY=470,cartRoll=0,cartLaunchTimer=0;let bossAttackOrder=[],lastBossAttackOrder=null;
 let marioSubboss=null,moonCrater=null,marioFireballs=[];
@@ -541,7 +578,7 @@ if(level!==22&&!platforms.some(p=>p.y===490&&p.x===0&&p.w>=W)){platforms.push({x
  updateHud();if(l.boss){gameState='play';bossIntroTimer=0;document.querySelector('#overlay').style.display='none';}}
 function updateHud(){const levelEl=document.querySelector('#level');if(levelEl)levelEl.textContent=`FASE ${level+1}/${levels.length}: ${levels[level].name}`;const progress=document.querySelector('#progressFill');if(progress)progress.style.width=Math.min(100,((level+(levels[level].boss&&boss?0.5:0))/levels.length*100))+'%';const livesEl=document.querySelector('#lives');if(livesEl)livesEl.textContent='♥ CHECKPOINT';const scoreEl=document.querySelector('#score');if(scoreEl)scoreEl.textContent='MOEDAS: '+score+' · ORBS: '+Object.values(orbs).filter(Boolean).length+'/2';const elapsed=Math.max(0,Math.floor((Date.now()-(runStart||Date.now()))/1000));const statsEl=document.querySelector('#stats');if(statsEl)statsEl.textContent='MORTES: '+deathCount+' · TEMPO: '+fmtTime(elapsed);const pauseText=gameState==='paused'?'▶ RETOMAR':'Ⅱ PAUSAR';const pauseEl=document.querySelector('#pauseToggle');if(pauseEl)pauseEl.textContent=pauseText;const touchPauseEl=document.querySelector('#touchPause');if(touchPauseEl)touchPauseEl.textContent=pauseText;}
 document.querySelectorAll('.difficultyChoice').forEach(btn=>{btn.style.cssText+=';background:#29304c;color:#fff;border:1px solid #65749c;border-radius:6px;padding:9px 11px;font:bold 12px monospace';btn.addEventListener('click',()=>{difficulty=btn.dataset.mode;document.querySelectorAll('.difficultyChoice').forEach(b=>b.classList.toggle('selected',b===btn));const info=document.querySelector('#difficultyInfo');if(info)info.textContent=difficulty==='hard'?'Difícil: fase 22 sem armadilha. The Guy pode sofrer dano.':difficulty==='easy'?'Fácil: inimigos mais lentos, mas a armadilha da fase 22 continua. Se chegar ao chefão por bug, ele será invulnerável.':'Médio: dificuldade padrão, armadilha na fase 22. Se chegar ao chefão por bug, ele será invulnerável.';});});
-function start(){moonCrater=null;marioSubboss=null;marioFireballs=[];catBoss=null;catBossUnlocked=false;orbs={cat:false,mario:false};makeTrapPlan();shuffleBossAttacks();bossDialogueSeen=false;bossInvulnerable=false;phase22TrapMessage=0;level=0;score=0;lives=1;deathCount=0;runStart=Date.now();checkpoint={level:0,x:45,y:420};resetLevel();gameState='play';document.querySelector('#overlay').style.display='none';if(soundEnabled){ensureAudio();startMusic();}updateHud();}
+function start(){moonCrater=null;marioSubboss=null;marioFireballs=[];catBoss=null;catBossUnlocked=false;orbs={cat:false,mario:false};makeTrapPlan();shuffleBossAttacks();bossDialogueSeen=false;bossInvulnerable=false;phase22TrapMessage=0;rangerVisitedRegions=[0];rangerCurrentRegion=0;level=0;score=0;lives=1;deathCount=0;runStart=Date.now();checkpoint={level:0,x:45,y:420};resetLevel();gameState='play';document.querySelector('#overlay').style.display='none';if(soundEnabled){ensureAudio();startMusic();}updateHud();}
 document.querySelector('#start').onclick=start;
 renderRecords();
 document.querySelector('#start').setAttribute('aria-label','Começar I wanna be the ranger');
@@ -568,7 +605,7 @@ const rangerStoryPages=[
  {art:0,alt:'Ruínas de um antigo castelo sob a lua',eyebrow:'PRÓLOGO · O REINO ESQUECIDO',title:'UM MUNDO SEM MISERICÓRDIA',text:'Dizem que este reino foi construído para testar os mais corajosos. Plataformas desaparecem, frutas caem do céu e até a lua parece ter escolhido um lado. Ninguém sabe quem criou essas provações. Só sabem que ninguém as atravessa sem cair algumas centenas de vezes.'},
  {art:1,alt:'Monumento antigo que representa a lenda de The Guy',eyebrow:'A LENDA',title:'O TÍTULO DE THE GUY',text:'Uma antiga lenda fala de um guerreiro que chegou ao fim de todas as provações e recebeu o título de THE GUY. Desde então, muitos tentaram repetir sua jornada. Todos descobriram a mesma coisa: o caminho nunca é justo, e o mundo parece rir de cada tentativa.'},
  {art:2,alt:'The Kid diante de uma lua enorme sobre ruínas',eyebrow:'O CHAMADO',title:'UMA LUA NO HORIZONTE',text:'Quando uma enorme lua surgiu sobre as ruínas, The Kid percebeu que havia algo diferente naquela jornada. As armadilhas pareciam esconder passagens, e cada fase guardava um segredo. Talvez sobreviver não fosse o bastante. Talvez fosse hora de encontrar um caminho próprio.'},
- {art:3,alt:'The Kid inicia a jornada por uma estrada até um castelo distante',eyebrow:'A JORNADA COMEÇA',title:'I WANNA BE THE RANGER',text:'The Kid parte em busca de respostas, enfrentando 24 fases, chefes e surpresas que não aparecem em nenhum mapa. Seu objetivo é simples: continuar avançando, aprender com cada queda e conquistar um título que seja só dele. A jornada começa agora.'}
+ {art:3,alt:'The Kid inicia a jornada por uma estrada até um castelo distante',eyebrow:'A JORNADA COMEÇA',title:'I WANNA BE THE RANGER',text:'The Kid parte em busca de respostas, enfrentando 40 fases, chefes e surpresas que não aparecem em nenhum mapa. Seu objetivo é simples: continuar avançando, aprender com cada queda e conquistar um título que seja só dele. A jornada começa agora, atravessando sete regiões e a Torre do The Guy.'}
 ];
 function rangerReadSlots(){
  try{const raw=JSON.parse(localStorage.getItem(RANGER_SAVE_KEY)||'[]');const a=Array.isArray(raw)?raw:[];return [0,1,2].map(i=>a[i]&&typeof a[i]==='object'?a[i]:null);}
@@ -584,10 +621,10 @@ function saveActiveRun(){
  if(previous&&previous.completed)return;
  const clonedMario=marioSubboss?JSON.parse(JSON.stringify(marioSubboss)):null;
  slots[activeRunSlot]={
-  name:'RUN '+(activeRunSlot+1),difficulty,level:Math.max(0,Math.min(levels.length-1,checkpoint?.level??0)),
+  name:'RUN '+(activeRunSlot+1),difficulty,level:Math.max(0,Math.min(levels.length-1,level)),
   checkpoint:checkpoint?{level:checkpoint.level,x:checkpoint.x,y:checkpoint.y}:{level:0,x:45,y:420},
   score:Number(score)||0,deathCount:Number(deathCount)||0,elapsed:rangerElapsed(),
-  bossDialogueSeen:!!bossDialogueSeen,orbs:{...orbs},catBossUnlocked:!!catBossUnlocked,completed:false,savedAt:Date.now(),
+  bossDialogueSeen:!!bossDialogueSeen,orbs:{...orbs},catBossUnlocked:!!catBossUnlocked,visitedRegions:[...rangerVisitedRegions],currentRegion:rangerCurrentRegion,completed:false,savedAt:Date.now(),
   marioSubboss:clonedMario,moonCrater:moonCrater?JSON.parse(JSON.stringify(moonCrater)):null,
   player:marioSubboss&&player?{x:player.x,y:player.y,vx:player.vx,vy:player.vy,face:player.face,jumps:player.jumps}:null,
   gameState:marioSubboss?gameState:'play'
@@ -611,6 +648,37 @@ function rangerSetSound(on){
  else{stopMusic();if(masterGain&&audioCtx)masterGain.gain.setTargetAtTime(0,audioCtx.currentTime,0.025);}
 }
 function rangerPanel(html){const panel=document.querySelector('#panel');panel.classList.add('ranger-panel');panel.innerHTML=html;document.querySelector('#overlay').style.display='flex';}
+function rangerShowWorldMap(fromRegion){
+ gameState='menu';stopMusic();
+ const visited=new Set(rangerVisitedRegions);
+ const available=(RANGER_REGION_LINKS[fromRegion]||[]).filter(id=>id!==fromRegion);
+ const allDone=RANGER_REGIONS.slice(0,7).every(r=>visited.has(r.id));
+ const mapCards=RANGER_REGIONS.map(r=>{
+  const done=r.id===7?allDone:visited.has(r.id),open=r.id<7&&(RANGER_REGION_LINKS[fromRegion]||[]).includes(r.id)&&r.id!==fromRegion;
+  return `<div class="ranger-region-node ${done?'done':''} ${open?'open':''}" style="grid-row:${r.pos[0]+1};grid-column:${r.pos[1]+1}"><b>${r.short}</b><small>${r.id===7?(allDone?'LIBERADA':'FINAL'):done?'CONCLUÍDA':open?'ROTA DISPONÍVEL':'BLOQUEADA'}</small></div>`;
+ }).join('');
+ const mapEdges=[];for(const [a,links] of Object.entries(RANGER_REGION_LINKS)){for(const b of links){const x=Number(a);if(x<b){const A=RANGER_REGIONS[x].pos,B=RANGER_REGIONS[b].pos;mapEdges.push(`<line x1="${50+A[1]*100}" y1="${33+A[0]*80}" x2="${50+B[1]*100}" y2="${33+B[0]*80}"/>`);}}}const F=RANGER_REGIONS[6].pos,T=RANGER_REGIONS[7].pos;mapEdges.push(`<line x1="${50+F[1]*100}" y1="${33+F[0]*80}" x2="${50+T[1]*100}" y2="${33+T[0]*80}"/>`);
+ const choices=allDone?`<button class="ranger-menu-button" id="rangerEnterTower">ENTRAR NA TORRE DO THE GUY</button>`:available.map(id=>`<button class="ranger-menu-button" data-region-route="${id}">${visited.has(id)?'VOLTAR PARA':'IR PARA'} ${RANGER_REGIONS[id].short}</button>`).join('');
+ rangerPanel(`<div class="ranger-submenu ranger-world-map"><div class="ranger-kicker">MAPA-MESTRE · FIXO NOS 3 SLOTS</div><h2>Rotas do mundo</h2><p>Região concluída: <b>${RANGER_REGIONS[fromRegion].name}</b>. Escolha uma das conexões abertas.</p><div class="ranger-map-grid"><svg class="ranger-map-lines" viewBox="0 0 500 320" preserveAspectRatio="none">${mapEdges.join('')}</svg>${mapCards}</div><div class="ranger-map-links">${choices||'<p>Não há uma rota nova disponível a partir daqui.</p>'}</div><p class="ranger-note">As sete regiões são sempre as mesmas. Só o progresso de cada slot muda.</p></div>`);
+ document.querySelectorAll('[data-region-route]').forEach(b=>b.onclick=()=>rangerEnterRegion(Number(b.dataset.regionRoute)));
+ const tower=document.querySelector('#rangerEnterTower');if(tower)tower.onclick=()=>{rangerCurrentRegion=7;level=35;resetLevel();gameState='play';rangerHideOverlay();saveActiveRun();if(soundEnabled){ensureAudio();startMusic();}};
+}
+function rangerEnterRegion(id){
+ if(!RANGER_REGIONS[id]||id>6)return;
+ if(!(RANGER_REGION_LINKS[rangerCurrentRegion]||[]).includes(id))return;
+ rangerCurrentRegion=id;level=rangerStageForRegion(id,0);resetLevel();gameState='play';rangerHideOverlay();saveActiveRun();if(soundEnabled){ensureAudio();startMusic();}
+}
+function rangerAdvanceStage(){
+ if(level<35){
+  const rid=rangerRegionForLevel(level),phase=level%5;
+  if(phase<4){level=rangerStageForRegion(rid,phase+1);resetLevel();return;}
+  if(!rangerVisitedRegions.includes(rid))rangerVisitedRegions.push(rid);
+  rangerCurrentRegion=rid;saveActiveRun();
+  rangerShowWorldMap(rid);return;
+ }
+ if(level<levels.length-1){level++;resetLevel();if(level===levels.length-1&&!bossDialogueSeen){if(Object.values(orbs).filter(Boolean).length<2){level=22;resetLevel();showOverlay('ORBS INSUFICIENTES','Você precisa conquistar as Orbs dos chefes antes de enfrentar The Guy.');}else showBossDialogue();}return;}
+ startVictoryDodge();
+}
 function rangerMenuButton(id,label,extra=''){return `<button type="button" class="ranger-menu-button" id="${id}" ${extra}>${label}</button>`;}
 function showTitleScreen(message=''){
  gameState='menu';stopMusic();keys.left=keys.right=keys.jump=keys.fire=false;pressedJump=pressedFire=false;
@@ -619,9 +687,9 @@ function showTitleScreen(message=''){
  rangerPanel(`<div class="ranger-title-layout ranger-title-screen">
   <img class="ranger-title-art ranger-title-background" src="${RANGER_TITLE_ART}" alt="The Kid em pé no topo de um prédio, diante de uma cidade à noite"/>
   <div class="ranger-title-copy">
-   <div class="ranger-kicker">24 FASES · 3 SLOTS DE RUN · ZERO PIEDADE</div>
+   <div class="ranger-kicker">40 FASES · 3 SLOTS DE RUN · ZERO PIEDADE</div>
    <h2 class="ranger-main-title">I WANNA BE<br>THE RANGER</h2>
-   <p class="ranger-tagline">Uma jornada. Três arquivos. Infinitas maneiras de cair.</p>
+   <p class="ranger-tagline">Oito regiões. Um mapa fixo. Três arquivos. Infinitas maneiras de cair.</p>
    ${note}
    <div class="ranger-menu-grid">
     ${rangerMenuButton('rangerStart','Start')}
@@ -701,7 +769,7 @@ function showRunSelect(selectedSlot=-1,notice=''){
 function rangerStartRunInSlot(index,mode){
  if(index<0||index>2)return;
  const all=rangerReadSlots();if(all[index]&&!all[index].completed){rangerLoadRun(index);return;}
- activeRunSlot=index;orbs={cat:false,mario:false};catBossUnlocked=false;difficulty=mode||rangerOptions.defaultDifficulty||'medium';
+ activeRunSlot=index;orbs={cat:false,mario:false};catBossUnlocked=false;rangerVisitedRegions=[0];rangerCurrentRegion=0;difficulty=mode||rangerOptions.defaultDifficulty||'medium';
  if(typeof rangerBaseStart==='function')rangerBaseStart();
  saveActiveRun();rangerAutosaveFrames=0;
  if(soundEnabled){ensureAudio();startMusic();}
@@ -711,7 +779,7 @@ function rangerLoadRun(index){
  const s=rangerReadSlots()[index];if(!s||s.completed)return;
  activeRunSlot=index;difficulty=['easy','medium','hard'].includes(s.difficulty)?s.difficulty:'medium';
  makeTrapPlan();shuffleBossAttacks();bossDialogueSeen=!!s.bossDialogueSeen;
- bossInvulnerable=false;phase22TrapMessage=0;orbs={cat:!!s.orbs?.cat,mario:!!s.orbs?.mario};catBossUnlocked=!!s.catBossUnlocked;
+ bossInvulnerable=false;phase22TrapMessage=0;orbs={cat:!!s.orbs?.cat,mario:!!s.orbs?.mario};catBossUnlocked=!!s.catBossUnlocked;rangerVisitedRegions=Array.isArray(s.visitedRegions)?s.visitedRegions.filter(n=>Number.isInteger(n)&&n>=0&&n<7):[0];if(!rangerVisitedRegions.includes(0))rangerVisitedRegions.unshift(0);rangerCurrentRegion=Number.isInteger(s.currentRegion)&&s.currentRegion>=0&&s.currentRegion<8?s.currentRegion:rangerRegionForLevel(Number(s.checkpoint?.level??s.level)||0);
  level=Math.max(0,Math.min(levels.length-1,Number(s.checkpoint?.level??s.level)||0));score=Number(s.score)||0;deathCount=Number(s.deathCount)||0;lives=1;
  checkpoint=s.checkpoint&&Number.isFinite(s.checkpoint.x)?{level:Number(s.checkpoint.level)||level,x:Number(s.checkpoint.x),y:Number(s.checkpoint.y)||420}:{level,x:45,y:420};
  runStart=Date.now()-Math.max(0,Number(s.elapsed)||0)*1000;
@@ -1106,7 +1174,7 @@ function update(){
  if(gameState==='credits-ending'){frame++;creditsTimer++;if(creditsTimer>=666)showRainbowMenuAfterCredits();return;}
  if(gameState==='boss-dialogue')return;
  if(gameState==='dying'){frame++;deathTimer--;player.anim++;player.vy+=.42;player.x+=player.vx;player.y+=player.vy;player.vx*=.96;if(deathTimer<=0)finishDeath();return}
- if(gameState==='cart-launch'){frame++;cartLaunchTimer++;player.anim++;player.x+=player.vx;player.y+=player.vy;player.vy+=.20;if(cartLaunchTimer>68||player.x>W+22){level++;resetLevel();if(levels[level]&&levels[level].boss&&!bossDialogueSeen){if(Object.values(orbs).filter(Boolean).length<2){level=22;resetLevel();showOverlay('ORBS INSUFICIENTES','Você precisa conquistar todas as Orbs dos chefes antes de enfrentar The Guy.');}else showBossDialogue();}}return}
+ if(gameState==='cart-launch'){frame++;cartLaunchTimer++;player.anim++;player.x+=player.vx;player.y+=player.vy;player.vy+=.20;if(cartLaunchTimer>68||player.x>W+22){rangerAdvanceStage();}return}
  if(gameState==='victory-dodge'){frame++;player.anim++;if(player.jumpPrep>0)player.jumpPrep--;player.vx=(keys.right?3.2:0)-(keys.left?3.2:0);if(pressedJump&&player.jumps<1){player.vy=-11.8;player.on=false;player.jumps=1;player.jumpPrep=5;}pressedJump=false;player.vy=Math.min(player.vy+.48,13);player.x=Math.max(0,Math.min(W-player.w,player.x+player.vx));player.y+=player.vy;if(player.y+player.h>=490){player.y=490-player.h;player.vy=0;player.on=true;player.jumps=0;}else player.on=false;if(endingApple){endingApple.x+=endingApple.vx;endingApple.y+=endingApple.vy;if(overlap(player,endingApple)){hurt();}if(endingApple.x<-40||endingApple.x>W+40||endingApple.y<-40||endingApple.y>H+40){endingApple=null;endingDodged=true;showOverlay('VITÓRIA!','Você zerou I wanna be the ranger! Moedas: '+score+' · Mortes: '+deathCount+' · Tempo: '+document.querySelector('#stats').textContent,'JOGAR DE NOVO');}}else{endingTimer--;if(endingTimer<=0){let dx=player.x+player.w/2-(Math.random()<.5?0:W);let dy=player.y+player.h/2-490;let mag=Math.hypot(dx,dy)||1;endingApple={x:Math.random()<.5?-20:W+20,y:490,w:22,h:22,vx:(player.x+player.w/2-(Math.random()<.5?-20:W+20))/20,vy:-0.2};const tx=player.x+player.w/2,ty=player.y+player.h/2;const sx=endingApple.x,sy=endingApple.y;const m=Math.hypot(tx-sx,ty-sy)||1;endingApple.vx=(tx-sx)/m*21;endingApple.vy=(ty-sy)/m*21;}}return;}if(gameState!=='play')return;frame++;if(level===2)updateCatBoss();if(moonCrater&&moonCrater.stage==='explosion'){moonCrater.explosion--;if(moonCrater.explosion<=0){moonCrater.stage='open';moonCrater.open=true;}}if(frame%30===0)updateHud();player.anim++;if(player.jumpPrep>0)player.jumpPrep--;if(player.shootAnim>0)player.shootAnim--;const bossIntroActive=!!(boss&&boss.alive&&bossIntroTimer>0);if(bossIntroTimer>0)bossIntroTimer--;if(reverseTimer>0)reverseTimer--;if(swapTimer>0)swapTimer--;if(lowGravityTimer>0)lowGravityTimer--;const moveLeft=reverseTimer>0?keys.right:keys.left,moveRight=reverseTimer>0?keys.left:keys.right;const doJump=swapTimer>0?pressedFire:pressedJump;const axis=(moveRight?1:0)-(moveLeft?1:0);if(bossIntroActive)player.vx=0;else if(axis)player.vx=Math.max(-4.25,Math.min(4.25,player.vx+axis*.58));else player.vx*=.78;if(level===22)player.vx=Math.max(1.35,player.vx);if(Math.abs(player.vx)<.12)player.vx=0;if(axis)player.face=axis>0?1:-1;
  if(!bossIntroActive&&doJump&&player.jumps<2){player.vy=player.jumps===0?-12.1:-10.8;player.on=false;player.jumps++;player.jumpPrep=5;jumpHeld=true;playJump(player.jumps);}pressedJump=false;if(!keys.jump)jumpHeld=false;if(!jumpHeld&&player.vy<0)player.vy=Math.max(player.vy,-5.0);
  if(!bossIntroActive&&keys.fire&&shotCooldown<=0){shots.push({x:player.x+(player.face>0?player.w:-10),y:player.y+player.h/2-3.5,w:12,h:7,vx:player.face*8,life:75});player.shootAnim=12;shotCooldown=7;playShot();}if(shotCooldown>0)shotCooldown--;pressedFire=false;
@@ -1305,7 +1373,7 @@ bossShots=bossShots.filter(bs=>bs.life>0&&bs.x>-80&&bs.x<W+80&&bs.y>-80&&bs.y<H+
   // Removidas as armadilhas de espinhos genéricas que surgiam sem aviso em fases aleatórias.
  // Os espinhos desenhados especificamente em fases próprias continuam funcionando.
 
- if(player.x>levels[level].goal&&(!boss||!boss.alive)&&!catBoss&&!(level===2&&!catBossUnlocked&&catCloudTimer>0)&&gameState==='play'){if(level===22){gameState='cart-launch';cartLaunchTimer=0;player.x=865;player.y=Math.min(player.y,452);player.vx=2.35;player.vy=-10.5;playJump(2);}else if(level<levels.length-1){level++;resetLevel();if(levels[level].boss&&!bossDialogueSeen){if(Object.values(orbs).filter(Boolean).length<2){level=22;resetLevel();showOverlay('ORBS INSUFICIENTES','Você precisa conquistar todas as Orbs dos chefes antes de enfrentar The Guy.');}else showBossDialogue();}}else startVictoryDodge()}
+ if(player.x>levels[level].goal&&(!boss||!boss.alive)&&!catBoss&&!(level===2&&!catBossUnlocked&&catCloudTimer>0)&&gameState==='play'){if(level===22){gameState='cart-launch';cartLaunchTimer=0;player.x=865;player.y=Math.min(player.y,452);player.vx=2.35;player.vy=-10.5;playJump(2);}else if(level<levels.length-1){rangerAdvanceStage();}else startVictoryDodge()}
  camera=Math.max(0,Math.min(W-960,player.x-300));updateHud()
 }
 function rect(x,y,w,h,c){ctx.fillStyle=c;ctx.fillRect(Math.round(x-camera),Math.round(y),w,h)}
@@ -1345,13 +1413,19 @@ const pixelboltSparkSheet = new Image();
 pixelboltSparkSheet.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAAwCAYAAAD+f6R/AAABR0lEQVR42u3YsXHCMBQGYDnnOypGyAgZICuEEdiARdiADTJCWIEyRUbICKmolCpwcIdPUmyQ7e+rbRd6er+fFAIAAAAAAAAAAAAAAAAAAAAAUI2m9MV4/IoXH1q8NJbzfqy/9e/Dk1LCfLUhhBC/N/HmiPC8S0q262+kvgc399Tm9bSnmt2hcz/Fn/fzs8u1vZcTAH/N+q9F3H4mFYrMJsioSfx4Oz+72qsDaQHQR3L23filYZTz16BuOfUb6q/fNR3nPFvrRFxtgwiAimqRsbHH2ARzPo5okAESfbJN4DgyuTBqNUFHOhbejZzem9g0kvM3G7rphdGdJ4DSRXQ762gkAOrVJidF4cIN0fTCiD6nkVlPuaNMfwHw0PuOyd5xzHBfaQJNUHxUEKjjDyNFc77ENAIAAAAAAAAAAAAAAAAAAAAAADzUL4iV9BYYluR7AAAAAElFTkSuQmCC";
 
 function drawPixelboltBackdrop(){
-  ctx.fillStyle=(levels[level]||levels[0]).bg;ctx.fillRect(0,0,W,H);
-  if(pixelboltSceneAtlas.complete&&pixelboltSceneAtlas.naturalWidth){
-    const sx=(level%6)*240,sy=Math.floor(level/6)*135;
-    ctx.save();ctx.imageSmoothingEnabled=false;
-    ctx.drawImage(pixelboltSceneAtlas,sx,sy,240,135,0,0,W,H);
-    ctx.restore();
-  }
+ const rid=rangerRegionForLevel(level);const r=RANGER_REGIONS[rid];
+ ctx.save();ctx.imageSmoothingEnabled=false;
+ // O encontro especial do Devorador mantém o quadro original do atlas Pixelbolt.
+ if(level===2&&pixelboltSceneAtlas.complete&&pixelboltSceneAtlas.naturalWidth){ctx.drawImage(pixelboltSceneAtlas,480,0,240,135,0,0,W,H);ctx.restore();return;}
+ if(rid===0){ctx.fillStyle='#87d9f0';ctx.fillRect(0,0,W,H);ctx.fillStyle='#ffe58a';ctx.fillRect(760,62,74,74);for(let i=0;i<5;i++){let x=(i*235+30)%1050-40,y=95+(i%3)*42;ctx.fillStyle='#f4fbff';ctx.fillRect(x,y,90,18);ctx.fillRect(x+18,y-12,42,20);ctx.fillRect(x+52,y-7,35,15);}ctx.fillStyle='#4f9b62';for(let i=0;i<8;i++){let x=i*145-camera*.12;ctx.fillRect(x,350,95,150);ctx.fillRect(x+25,315,45,60);ctx.fillStyle='#34784d';ctx.fillRect(x+10,330,70,55);ctx.fillStyle='#4f9b62';}}
+ else if(rid===1){ctx.fillStyle='#100b16';ctx.fillRect(0,0,W,H);ctx.fillStyle='#35101c';ctx.fillRect(0,300,W,200);ctx.fillStyle='#681e25';for(let i=0;i<12;i++){let x=i*95-camera*.18;ctx.fillRect(x,170+(i%4)*27,70,330);ctx.fillRect(x+18,130+(i%3)*23,35,80);}ctx.fillStyle='#f04427';ctx.fillRect(0,455,W,45);ctx.fillStyle='#ff9b32';for(let i=0;i<16;i++){let x=(i*67+frame*.6)%W;ctx.fillRect(x,448+(i%3)*8,22,4);}}
+ else if(rid===2){ctx.fillStyle='#a9dff3';ctx.fillRect(0,0,W,H);ctx.fillStyle='#e8f7ff';for(let i=0;i<9;i++){let x=i*135-camera*.12;ctx.beginPath();ctx.moveTo(x,430);ctx.lineTo(x+85,180+(i%3)*48);ctx.lineTo(x+170,430);ctx.fill();}ctx.fillStyle='#fff';for(let i=0;i<18;i++){let x=(i*59+frame*.15)%W,y=(i*37+frame*.4)%440;ctx.fillRect(x,y,3,5);}}
+ else if(rid===3){ctx.fillStyle='#0c122c';ctx.fillRect(0,0,W,H);for(let i=0;i<60;i++){let x=(i*73)%W,y=(i*47)%360;ctx.fillStyle=i%4===0?'#fff3b0':'#9bb6e8';ctx.fillRect(x,y,2,2);}ctx.fillStyle='#35486e';for(let i=0;i<7;i++){let x=i*170-camera*.16;ctx.fillRect(x,350+(i%2)*28,130,170);ctx.fillRect(x+24,330+(i%2)*28,80,25);}ctx.fillStyle='#dcecff';for(let i=0;i<5;i++){let x=(i*220+frame*.18)%1100-100;ctx.fillRect(x,185+i%2*70,120,18);ctx.fillRect(x+20,168+i%2*70,65,25);}}
+ else if(rid===4){ctx.fillStyle='#1b1228';ctx.fillRect(0,0,W,H);ctx.fillStyle='#70517c';ctx.fillRect(730,55,76,76);ctx.fillStyle='#1b1228';ctx.fillRect(750,45,76,76);ctx.fillStyle='#30203d';for(let i=0;i<12;i++){let x=i*90-camera*.1;ctx.fillRect(x,345,44,155);ctx.fillRect(x+10,320,24,30);}ctx.fillStyle='#9a829a';for(let i=0;i<11;i++){let x=i*95-camera*.08;ctx.fillRect(x,420+(i%3)*16,28,60);ctx.fillRect(x-6,410+(i%3)*16,40,12);ctx.fillRect(x+8,400+(i%3)*16,12,12);}ctx.fillStyle='#49304f';for(let i=0;i<5;i++){let x=i*220-camera*.2;ctx.fillRect(x+40,230,9,180);ctx.fillRect(x+12,250,65,10);}}
+ else if(rid===5){ctx.fillStyle='#06384d';ctx.fillRect(0,0,W,H);ctx.fillStyle='#0b5668';for(let i=0;i<8;i++){let x=i*145-camera*.13;ctx.fillRect(x,210+(i%3)*32,100,290);ctx.fillRect(x+20,175+(i%2)*30,60,45);}ctx.fillStyle='#1d8490';for(let i=0;i<6;i++){let x=i*185-camera*.08;ctx.fillRect(x,90,6,340);ctx.fillRect(x+45,120,4,280);}for(let i=0;i<18;i++){let x=(i*59+frame*.25)%W,y=(i*41+frame*.12)%450;ctx.strokeStyle='#a5e7df';ctx.strokeRect(x,y,5,7);}}
+ else if(rid===6){ctx.fillStyle='#202b38';ctx.fillRect(0,0,W,H);ctx.fillStyle='#465463';for(let i=0;i<10;i++){let x=i*105-camera*.12;ctx.fillRect(x,100,72,400);ctx.fillStyle='#273541';for(let y=130;y<470;y+=54)ctx.fillRect(x+12,y,14,20);ctx.fillStyle='#465463';ctx.fillRect(x+70,150,28,350);}ctx.fillStyle='#d8a84f';for(let i=0;i<10;i++)ctx.fillRect(i*110-camera*.12,470,50,5);}
+ else {ctx.fillStyle='#24132f';ctx.fillRect(0,0,W,H);ctx.fillStyle='#492b59';for(let y=0;y<520;y+=34){let offset=(Math.floor(y/34)%2)*24;for(let x=-30+offset;x<W+30;x+=48){ctx.fillRect(x,y,44,28);ctx.fillStyle='#321c42';ctx.fillRect(x+2,y+2,40,24);ctx.fillStyle='#492b59';}}ctx.fillStyle='#9c6db0';ctx.fillRect(0,0,W,5);}
+ ctx.restore();
 }
 function drawPixelboltFxFrame(sheet,index,x,y,w,h){
   if(!sheet||!sheet.complete||!sheet.naturalWidth)return false;
@@ -1378,7 +1452,7 @@ function drawPixelboltAmbientFx(){
 }
 function drawPixelboltTerrainDetails(){
   if(level===levels.length-1)return;
-  const type=level===0||level===1||level===5?'nature':level===3?'crystal':([8,10,13,15,17].includes(level)?'metal':([2,4,11,12,19,21,22].includes(level)?'stone':'rough'));
+  const rid=rangerRegionForLevel(level);const type=rid===0?'nature':rid===2?'crystal':rid===6?'metal':rid===1?'lava':rid===3?'cloud':rid===5?'water':rid===7?'tower':'stone';
   for(const p of platforms){
     const sx=Math.round(p.x-camera),y=Math.round(p.y),ex=sx+p.w;
     if(ex<0||sx>W)continue;
@@ -1389,8 +1463,16 @@ function drawPixelboltTerrainDetails(){
     }else if(type==='metal'){
       for(let x=sx+12;x<ex-5;x+=38){ctx.fillStyle='#9aaebe';ctx.fillRect(x,y+6,3,3);ctx.fillStyle='#d3e9f3';ctx.fillRect(x,y+6,1,1);}
       ctx.fillStyle='#273b4c';ctx.fillRect(sx,y+13,Math.max(0,p.w),2);
+    }else if(type==='lava'){
+      for(let x=sx+8;x<ex-6;x+=35){ctx.fillStyle='#ff8a32';ctx.fillRect(x,y+7,12,2);ctx.fillStyle='#ffcf62';ctx.fillRect(x+3,y+5,5,2);}
+    }else if(type==='cloud'){
+      for(let x=sx+12;x<ex-8;x+=44){ctx.fillStyle='#dbeaff';ctx.fillRect(x,y+7,18,3);ctx.fillRect(x+4,y+4,9,3);}
+    }else if(type==='water'){
+      for(let x=sx+8;x<ex-8;x+=34){ctx.fillStyle='#62d0cf';ctx.fillRect(x,y+7,18,2);ctx.fillStyle='#c2ffff';ctx.fillRect(x+5,y+5,5,2);}
+    }else if(type==='tower'){
+      for(let x=sx+8;x<ex-8;x+=42){ctx.fillStyle='#382247';ctx.fillRect(x,y+7,30,2);ctx.fillStyle='#b887c9';ctx.fillRect(x+4,y+4,3,2);}
     }else{
-      for(let x=sx+17;x<ex-8;x+=51){ctx.fillStyle='#1c2435';ctx.fillRect(x,y+7,5,2);ctx.fillStyle=([2,4,11,12,19,21,22].includes(level)?'#c7a06b':'#9ba6ad');ctx.fillRect(x+2,y+6,2,1);}
+      for(let x=sx+17;x<ex-8;x+=51){ctx.fillStyle='#1c2435';ctx.fillRect(x,y+7,5,2);ctx.fillStyle=(rid===4?'#a99aaa':rid===1?'#f16b38':rid===5?'#4eb7b7':'#9ba6ad');ctx.fillRect(x+2,y+6,2,1);}
     }
   }
 }
@@ -1424,7 +1506,7 @@ function draw(){
  if(level!==levels.length-1){drawPixelboltBackdrop();drawPixelboltAmbientFx();}
  if(level===2){if(!catBoss){const cy=Math.min(330,35+Math.max(0,75-catCloudTimer)*3.9);ctx.fillStyle='#f4fbff';ctx.beginPath();ctx.arc(555-camera,cy+18,28,0,Math.PI*2);ctx.arc(580-camera,cy+8,34,0,Math.PI*2);ctx.arc(609-camera,cy+20,26,0,Math.PI*2);ctx.fill();ctx.fillStyle='#28334b';ctx.fillRect(566-camera,cy+12,5,5);ctx.fillRect(591-camera,cy+12,5,5);if(catCloudTimer<20){ctx.fillStyle='#fff0a5';ctx.font='bold 13px monospace';ctx.fillText('AS NUVENS ESTÃO FICANDO ESTRANHAS...',W/2-150,72);}}}
  else if(level===levels.length-1){const isPhase2Showing=!!(boss&&boss.phase===2&&boss.phase2Stage!=="intro");drawFinalBossRoom(isPhase2Showing);}
- if(level!==levels.length-1)for(const p of platforms){const trim=p.bonus?'#d5e7ff':level===10?'#f0bf4a':level===11?'#8d9ba7':level===12?'#c59be8':level===13?'#e45569':'#a7d66c';const segments=[];if(p.holes&&p.holes.length){let at=p.x;for(const h of [...p.holes].sort((a,b)=>a.x-b.x)){if(h.x>at)segments.push([at,h.x-at]);at=Math.max(at,h.x+h.w);}if(at<p.x+p.w)segments.push([at,p.x+p.w-at]);}else segments.push([p.x,p.w]);for(const [sx,sw] of segments){if(sw<=0)continue;rect(sx,p.y,sw,p.h,p.bonus?'#657d91':l.ground);rect(sx,p.y,sw,5,trim);for(let x=sx+10;x<sx+sw;x+=24){if(p.bonus){rect(x,p.y+8,9,3,'#2b354b');rect(x+3,p.y+12,4,2,'#b5d7ec')}else if(level===10)rect(x,p.y+9,12,4,'#26343c');else if(level===11)rect(x,p.y+8,7,7,'#344957');else if(level===12)rect(x,p.y+9,8,4,'#322541');else if(level===13)rect(x,p.y+9,8,4,'#281f32');else rect(x,p.y+9,8,4,'#253e3a')}}}
+ if(level!==levels.length-1)for(const p of platforms){const rid=rangerRegionForLevel(level);const trim=p.bonus?'#d5e7ff':rid===1?'#f06a35':rid===2?'#e8fbff':rid===3?'#d9eaff':rid===4?'#b49aba':rid===5?'#59c4c9':rid===6?'#d8a84f':rid===7?'#bb8bd0':'#a7d66c';const segments=[];if(p.holes&&p.holes.length){let at=p.x;for(const h of [...p.holes].sort((a,b)=>a.x-b.x)){if(h.x>at)segments.push([at,h.x-at]);at=Math.max(at,h.x+h.w);}if(at<p.x+p.w)segments.push([at,p.x+p.w-at]);}else segments.push([p.x,p.w]);for(const [sx,sw] of segments){if(sw<=0)continue;rect(sx,p.y,sw,p.h,p.bonus?'#657d91':l.ground);rect(sx,p.y,sw,5,trim);for(let x=sx+10;x<sx+sw;x+=24){if(p.bonus){rect(x,p.y+8,9,3,'#2b354b');rect(x+3,p.y+12,4,2,'#b5d7ec')}else if(level===10)rect(x,p.y+9,12,4,'#26343c');else if(level===11)rect(x,p.y+8,7,7,'#344957');else if(level===12)rect(x,p.y+9,8,4,'#322541');else if(level===13)rect(x,p.y+9,8,4,'#281f32');else rect(x,p.y+9,8,4,'#253e3a')}}}
   drawPixelboltTerrainDetails();
   if(level===10){for(let x=(frame%48)-48;x<W;x+=48){rect(x+8,503,23,3,'#1e2930');rect(x+20,509,15,3,'#e6b64b');}for(const g of gears){ctx.save();ctx.translate(Math.round(g.x-camera),Math.round(g.y));ctx.rotate(frame*.09);ctx.fillStyle='#aebbc6';for(let j=0;j<8;j++){ctx.rotate(Math.PI/4);ctx.fillRect(-4,-g.r-5,8,10)}ctx.beginPath();ctx.arc(0,0,g.r-2,0,Math.PI*2);ctx.fill();ctx.fillStyle='#394955';ctx.beginPath();ctx.arc(0,0,6,0,Math.PI*2);ctx.fill();ctx.restore();}}
  // Draw the falling background disasters.
